@@ -22,6 +22,7 @@ sudo: false
 
 script:
   - ./gradlew clean test
+  - if [[ ${TRAVIS_JDK_VERSION} == "oraclejdk8" ]]; then ./gradlew coberturaReport coveralls; fi
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
